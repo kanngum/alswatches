@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shopping Cart - Authentic Luxury Shop">
+    <title>Shopping Cart - Authentic Luxury Shop (ALS)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">ALS</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-links">
+                    <a href="tel:+1234567890" class="top-bar-link">+1 (234) 567-890</a>
+                    <a href="mailto:info@als.com" class="top-bar-link">info@als.com</a>
+                </div>
+                <div class="top-bar-contact">
+                    <span>24/7 Customer Support</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="header-logo">
+                    <div>
+                        <div class="logo-text">ALS</div>
+                        <div class="logo-subtitle">Authentic Luxury</div>
+                    </div>
+                </a>
+                
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="profile.html" class="header-action">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="header-action">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav">
+        <button class="mobile-nav-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="mobile-nav-logo">
+            <div class="logo-text">ALS</div>
+            <div class="logo-subtitle">Authentic Luxury</div>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="shop.html" class="mobile-nav-link">Shop</a>
+            <a href="login.html" class="mobile-nav-link">Login</a>
+            <a href="cart.html" class="mobile-nav-link">Cart</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Shopping Cart</span>
+            </nav>
+            <h1 class="page-header-title">Shopping Cart</h1>
+            <p class="page-header-subtitle">Review your items before checkout</p>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <section class="section cart-page">
+        <div class="container">
+            <!-- Empty Cart -->
+            <div id="emptyCart" style="display: none;">
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </div>
+                    <h3 class="empty-state-title">Your Cart is Empty</h3>
+                    <p class="empty-state-text">Looks like you haven't added any items to your cart yet</p>
+                    <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+                </div>
+            </div>
+
+            <!-- Cart Items -->
+            <div class="grid" style="grid-template-columns: 1fr 400px; gap: var(--spacing-2xl);" id="cartItems">
+                <div>
+                    <h2 style="margin-bottom: var(--spacing-xl);">Cart Items</h2>
+                    <div id="cartItemsList">
+                        <!-- Cart items will be rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div id="cartSummary">
+                    <div class="order-summary">
+                        <h3 class="order-summary-title">Order Summary</h3>
+                        
+                        <div class="order-summary-totals">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="shipping">Calculated at checkout</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (8%)</span>
+                                <span id="tax">$0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="total">$0</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--spacing-xl);" onclick="CartPage.proceedToCheckout()">
+                            Proceed to Checkout
+                        </button>
+
+                        <a href="shop.html" class="btn btn-outline" style="width: 100%; margin-top: var(--spacing-md); text-align: center;">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">ALS <span>®</span></div>
+                    <p class="footer-description">Your trusted destination for authentic luxury timepieces.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <nav class="footer-links">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="shop.html" class="footer-link">Shop</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="color: var(--color-gray);">+1 (234) 567-890<br>info@als.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Authentic Luxury Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Render cart
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = ALS.getCart();
+            const cartItemsList = document.getElementById('cartItemsList');
+            
+            if (cartItemsList) {
+                if (cart.length === 0) {
+                    document.getElementById('cartItems').style.display = 'none';
+                    document.getElementById('cartSummary').style.display = 'none';
+                    document.getElementById('emptyCart').style.display = 'block';
+                } else {
+                    cartItemsList.innerHTML = cart.map(item => `
+                        <div class="product-card-horizontal" data-id="${item.id}">
+                            <div class="product-card-horizontal-image">
+                                <img src="${item.image}" alt="${item.name}">
+                            </div>
+                            <div class="product-card-horizontal-info">
+                                <div class="product-card-horizontal-brand">${item.brand}</div>
+                                <h3 class="product-card-horizontal-name">${item.name}</h3>
+                                <div class="product-card-horizontal-price">${ALS.formatPrice(item.price)}</div>
+                            </div>
+                            <div class="product-card-horizontal-actions">
+                                <div class="quantity-input">
+                                    <button class="quantity-btn" onclick="CartPage.updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                                    <span class="quantity-value">${item.quantity}</span>
+                                    <button class="quantity-btn" onclick="CartPage.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                                </div>
+                                <button class="product-card-horizontal-remove" onclick="CartPage.removeItem(${item.id})">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"/>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    // Update totals
+                    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    const shipping = subtotal > 10000 ? 0 : 50;
+                    const tax = subtotal * 0.08;
+                    const total = subtotal + shipping + tax;
+
+                    document.getElementById('subtotal').textContent = ALS.formatPrice(subtotal);
+                    document.getElementById('shipping').textContent = shipping === 0 ? 'Free' : ALS.formatPrice(shipping);
+                    document.getElementById('tax').textContent = ALS.formatPrice(tax);
+                    document.getElementById('total').textContent = ALS.formatPrice(total);
+                }
+            }
+            
+            // Hide loader
+            setTimeout(() => {
+                document.querySelector('.page-loader')?.classList.add('hidden');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

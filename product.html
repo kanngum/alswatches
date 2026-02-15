@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Details - Authentic Luxury Shop">
+    <title>Product Details - Authentic Luxury Shop (ALS)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">ALS</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-links">
+                    <a href="tel:+1234567890" class="top-bar-link">+1 (234) 567-890</a>
+                    <a href="mailto:info@als.com" class="top-bar-link">info@als.com</a>
+                </div>
+                <div class="top-bar-contact">
+                    <span>24/7 Customer Support</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="header-logo">
+                    <div>
+                        <div class="logo-text">ALS</div>
+                        <div class="logo-subtitle">Authentic Luxury</div>
+                    </div>
+                </a>
+                
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link active">Shop</a>
+                    <a href="shop.html?brand=ROLEX" class="nav-link">Rolex</a>
+                    <a href="shop.html?brand=OMEGA" class="nav-link">Omega</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="profile.html" class="header-action">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </a>
+                    <a href="cart.html" class="header-action">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav">
+        <button class="mobile-nav-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="mobile-nav-logo">
+            <div class="logo-text">ALS</div>
+            <div class="logo-subtitle">Authentic Luxury</div>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="shop.html" class="mobile-nav-link">Shop</a>
+            <a href="login.html" class="mobile-nav-link">Login</a>
+            <a href="cart.html" class="mobile-nav-link">Cart</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="shop.html">Shop</a>
+                <span class="breadcrumb-separator">/</span>
+                <span id="productBreadcrumb">Product</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Page -->
+    <section class="section product-page">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl);">
+                <!-- Image Gallery -->
+                <div data-aos="fade-right">
+                    <div class="product-gallery">
+                        <div class="main-image">
+                            <img id="mainImage" src="" alt="Product Image">
+                        </div>
+                        <div class="thumbnails" id="thumbnails">
+                            <!-- Thumbnails will be rendered by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div data-aos="fade-left" id="productInfo">
+                    <!-- Product info will be rendered by JS -->
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs" style="margin-top: var(--spacing-4xl);">
+                <div class="profile-tabs" style="margin-bottom: var(--spacing-xl);">
+                    <button class="profile-tab active" data-tab="description">Description</button>
+                    <button class="profile-tab" data-tab="specifications">Specifications</button>
+                    <button class="profile-tab" data-tab="reviews">Reviews</button>
+                </div>
+
+                <div id="tab-description" class="profile-content">
+                    <h3 style="margin-bottom: var(--spacing-lg);">Product Description</h3>
+                    <p id="productDescription" style="color: var(--color-gray); line-height: 1.8;">
+                        <!-- Description will be rendered by JS -->
+                    </p>
+                </div>
+
+                <div id="tab-specifications" class="profile-content" style="display: none;">
+                    <h3 style="margin-bottom: var(--spacing-lg);">Technical Specifications</h3>
+                    <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: var(--spacing-lg);" id="specifications">
+                        <!-- Specifications will be rendered by JS -->
+                    </div>
+                </div>
+
+                <div id="tab-reviews" class="profile-content" style="display: none;">
+                    <h3 style="margin-bottom: var(--spacing-lg);">Customer Reviews</h3>
+                    <p style="color: var(--color-gray);">No reviews yet. Be the first to review this product.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="section" style="background: var(--color-white-light);">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">You May Also Like</h2>
+            </div>
+            <div class="products-grid" id="relatedProducts">
+                <!-- Related products will be rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">ALS <span>®</span></div>
+                    <p class="footer-description">Your trusted destination for authentic luxury timepieces.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <nav class="footer-links">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="shop.html" class="footer-link">Shop</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="color: var(--color-gray);">+1 (234) 567-890<br>info@als.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Authentic Luxury Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/product.js"></script>
+    <script>
+        // Render related products
+        document.addEventListener('DOMContentLoaded', function() {
+            const relatedGrid = document.getElementById('relatedProducts');
+            if (relatedGrid) {
+                const products = ALS.getAllProducts().slice(0, 4);
+                relatedGrid.innerHTML = products.map(product => ALS.renderProductCard(product)).join('');
+            }
+            
+            // Hide loader
+            setTimeout(() => {
+                document.querySelector('.page-loader')?.classList.add('hidden');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

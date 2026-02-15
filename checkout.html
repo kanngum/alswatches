@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout - Authentic Luxury Shop">
+    <title>Checkout - Authentic Luxury Shop (ALS)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">ALS</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-links">
+                    <a href="tel:+1234567890" class="top-bar-link">+1 (234) 567-890</a>
+                    <a href="mailto:info@als.com" class="top-bar-link">info@als.com</a>
+                </div>
+                <div class="top-bar-contact">
+                    <span>24/7 Customer Support</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="header-logo">
+                    <div>
+                        <div class="logo-text">ALS</div>
+                        <div class="logo-subtitle">Authentic Luxury</div>
+                    </div>
+                </a>
+                
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="cart.html" class="header-action">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="cart.html">Cart</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Checkout</span>
+            </nav>
+            <h1 class="page-header-title">Checkout</h1>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <section class="section checkout-page">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1fr 400px; gap: var(--spacing-2xl);">
+                <!-- Checkout Form -->
+                <div>
+                    <form id="checkoutForm" class="checkout-form">
+                        <!-- Shipping Information -->
+                        <div class="checkout-section">
+                            <h3 class="checkout-section-title">
+                                <span class="checkout-section-title-number">1</span>
+                                Shipping Information
+                            </h3>
+                            
+                            <div class="checkout-form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="checkout-form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" id="email" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone *</label>
+                                    <input type="tel" id="phone" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Address *</label>
+                                <input type="text" id="address" class="form-input" required>
+                            </div>
+                            
+                            <div class="checkout-form-row">
+                                <div class="form-group">
+                                    <label class="form-label">City *</label>
+                                    <input type="text" id="city" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">State *</label>
+                                    <input type="text" id="state" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="checkout-form-row">
+                                <div class="form-group">
+                                    <label class="form-label">ZIP Code *</label>
+                                    <input type="text" id="zipCode" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Country *</label>
+                                    <select id="country" class="form-select" required>
+                                        <option value="">Select Country</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="CH">Switzerland</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="AE">United Arab Emirates</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="checkout-section">
+                            <h3 class="checkout-section-title">
+                                <span class="checkout-section-title-number">2</span>
+                                Payment Method
+                            </h3>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="card">
+                                    <div class="payment-method-radio"></div>
+                                    <div class="payment-method-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                            <line x1="1" y1="10" x2="23" y2="10"/>
+                                        </svg>
+                                    </div>
+                                    <div class="payment-method-info">
+                                        <div class="payment-method-title">Credit / Debit Card</div>
+                                        <div class="payment-method-description">Secure payment via Stripe</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method" data-method="bank">
+                                    <div class="payment-method-radio"></div>
+                                    <div class="payment-method-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 21h18"/>
+                                            <path d="M3 10h18"/>
+                                            <path d="M5 6l7-3 7 3"/>
+                                            <path d="M4 10v11"/>
+                                            <path d="M20 10v11"/>
+                                            <path d="M8 14v3"/>
+                                            <path d="M12 14v3"/>
+                                            <path d="M16 14v3"/>
+                                        </svg>
+                                    </div>
+                                    <div class="payment-method-info">
+                                        <div class="payment-method-title">Bank Transfer</div>
+                                        <div class="payment-method-description">Direct bank transfer</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method" data-method="paypal">
+                                    <div class="payment-method-radio"></div>
+                                    <div class="payment-method-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.771.771 0 0 1 .76-.61h5.692c3.15 0 5.337 2.187 4.535 5.213a3.722 3.722 0 0 1-2.999 2.432c-1.296.147-2.12.674-2.12.674s-.892-.907-2.18-1.294c-.98-.295-1.84 0-1.84 0s-.63-.63-1.612-.63H6.618l-.61 2.98-.61 2.98H7.08s.495-1.161 1.545-1.161c1.1 0 1.563.815 1.563.815s.582-.892 1.457-.892c.985 0 1.917.892 1.917.892s.394-.496 1.457-.496c1.458 0 2.19 1.16 2.19 1.16s-.493-1.456-2.19-1.456H9.04l-.493-2.43-.493-2.43h-.583c-.876 0-1.447.892-1.447.892s.328-.496 1.166-.496c1.457 0 2.19 1.16 2.19 1.16s-.493-1.456-2.19-1.456h-.584l.493-2.43.493-2.43h.583c.876 0 1.447-.892 1.447-.892s-.328.496-1.166.496c-1.457 0-2.19-1.16-2.19-1.16s.493 1.456 2.19 1.456h.584l.493 2.43.493 2.43h1.166s-.896 1.16-1.89 1.16c-1.457 0-2.19-1.16-2.19-1.16z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="payment-method-info">
+                                        <div class="payment-method-title">PayPal</div>
+                                        <div class="payment-method-description">Pay with your PayPal account</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                            Place Order
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div>
+                    <div class="order-summary" style="position: sticky; top: 100px;">
+                        <h3 class="order-summary-title">Order Summary</h3>
+                        
+                        <div class="order-summary-items" id="orderItems">
+                            <!-- Order items will be rendered by JS -->
+                        </div>
+                        
+                        <div class="order-summary-totals">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="shipping">Calculated at checkout</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (8%)</span>
+                                <span id="tax">$0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="total">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">ALS <span>®</span></div>
+                    <p class="footer-description">Your trusted destination for authentic luxury timepieces.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Authentic Luxury Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            if (!ALS.Auth.isLoggedIn()) {
+                window.location.href = 'login.html?redirect=checkout.html';
+                return;
+            }
+
+            const user = ALS.Auth.getCurrentUser();
+            const cart = ALS.getCart();
+
+            if (cart.length === 0) {
+                window.location.href = 'cart.html';
+                return;
+            }
+
+            // Pre-fill user data
+            if (user) {
+                document.getElementById('email').value = user.email || '';
+            }
+
+            // Render order items
+            const orderItems = document.getElementById('orderItems');
+            if (orderItems) {
+                orderItems.innerHTML = cart.map(item => `
+                    <div class="order-summary-item">
+                        <div class="order-summary-item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="order-summary-item-details">
+                            <div class="order-summary-item-name">${item.name}</div>
+                            <div class="order-summary-item-qty">Qty: ${item.quantity}</div>
+                        </div>
+                        <div class="order-summary-item-price">${ALS.formatPrice(item.price * item.quantity)}</div>
+                    </div>
+                `).join('');
+            }
+
+            // Update totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 10000 ? 0 : 50;
+            const tax = subtotal * 0.08;
+            const total = subtotal + shipping + tax;
+
+            document.getElementById('subtotal').textContent = ALS.formatPrice(subtotal);
+            document.getElementById('shipping').textContent = shipping === 0 ? 'Free' : ALS.formatPrice(shipping);
+            document.getElementById('tax').textContent = ALS.formatPrice(tax);
+            document.getElementById('total').textContent = ALS.formatPrice(total);
+
+            // Payment method selection
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', () => {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                    method.classList.add('active');
+                });
+            });
+
+            // Form submission
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate
+                const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'address', 'city', 'state', 'zipCode', 'country'];
+                let isValid = true;
+                
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value.trim()) {
+                        field.style.borderColor = 'var(--color-error)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
+
+                if (!document.querySelector('.payment-method.active')) {
+                    ALS.showToast('Please select a payment method', 'error');
+                    return;
+                }
+
+                if (!isValid) {
+                    ALS.showToast('Please fill in all required fields', 'error');
+                    return;
+                }
+
+                // Create order
+                const order = ALS.Orders.createOrder({
+                    userId: user.id,
+                    items: cart,
+                    subtotal,
+                    shipping,
+                    tax,
+                    total,
+                    shippingAddress: {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        address: document.getElementById('address').value,
+                        city: document.getElementById('city').value,
+                        state: document.getElementById('state').value,
+                        zipCode: document.getElementById('zipCode').value,
+                        country: document.getElementById('country').value
+                    },
+                    paymentMethod: document.querySelector('.payment-method.active').dataset.method
+                });
+
+                ALS.showToast('Order placed successfully!', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = `profile.html?order=${order.id}`;
+                }, 1500);
+            });
+            
+            // Hide loader
+            setTimeout(() => {
+                document.querySelector('.page-loader')?.classList.add('hidden');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

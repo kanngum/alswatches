@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Authentic Luxury Shop</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">ALS <span>Admin</span></div>
+            <nav class="admin-nav">
+                <a href="dashboard.html" class="admin-nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="products.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    Products
+                </a>
+                <a href="orders.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                    Orders
+                </a>
+                <a href="users.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    Users
+                </a>
+                <a href="../index.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Back to Store
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1 class="admin-title">Dashboard</h1>
+                <div class="admin-user">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=c9a962&color=fff" alt="Admin" style="width: 40px; height: 40px; border-radius: 50%;">
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                        </svg>
+                    </div>
+                    <div class="admin-stat-value" id="totalOrders">0</div>
+                    <div class="admin-stat-label">Total Orders</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="admin-stat-value" id="totalRevenue">$0</div>
+                    <div class="admin-stat-label">Total Revenue</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <path d="M16 10a4 4 0 0 1-8 0"/>
+                        </svg>
+                    </div>
+                    <div class="admin-stat-value" id="totalProducts">0</div>
+                    <div class="admin-stat-label">Products</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div class="admin-stat-value" id="totalUsers">0</div>
+                    <div class="admin-stat-label">Users</div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="admin-table-container">
+                <div style="padding: 1.5rem; border-bottom: 1px solid #eee;">
+                    <h2>Recent Orders</h2>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentOrders">
+                        <!-- Orders will be rendered by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if admin
+            if (!ALS.Auth.isAdmin()) {
+                window.location.href = '../index.html';
+                return;
+            }
+
+            const stats = ALS.Admin.getStats();
+            document.getElementById('totalOrders').textContent = stats.totalOrders;
+            document.getElementById('totalRevenue').textContent = ALS.formatPrice(stats.totalRevenue);
+            document.getElementById('totalProducts').textContent = stats.totalProducts;
+            document.getElementById('totalUsers').textContent = stats.totalUsers;
+
+            // Render recent orders
+            const orders = ALS.Admin.getAllOrders().slice(-5).reverse();
+            const tbody = document.getElementById('recentOrders');
+            
+            if (orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 2rem;">No orders yet</td></tr>';
+            } else {
+                tbody.innerHTML = orders.map(order => `
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.shippingAddress?.firstName || 'N/A'} ${order.shippingAddress?.lastName || ''}</td>
+                        <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                        <td>${ALS.formatPrice(order.total)}</td>
+                        <td><span class="status-badge ${order.status}">${order.status}</span></td>
+                        <td>
+                            <div class="admin-table-actions">
+                                <a href="orders.html" class="admin-table-action" title="View">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

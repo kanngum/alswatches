@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1,
+        "name": "Royal Chronograph",
+        "brand": "ROLEX",
+        "model": "Submariner Date",
+        "price": 12500,
+        "currency": "USD",
+        "images": [
+            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",
+            "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600"
+        ],
+        "description": "The Rolex Submariner Date is the ultimate diver's watch.",
+        "specifications": {
+            "case": "41mm Oystersteel",
+            "movement": "Perpetual Calibre 3235",
+            "waterResistance": "300 meters"
+        },
+        "stock": 5,
+        "warranty": "5 Years International Warranty",
+        "authenticityCertificate": "Included",
+        "rating": 4.9,
+        "reviews": 128,
+        "featured": true,
+        "newArrival": false,
+        "onSale": false
+    },
+    {
+        "id": 2,
+        "name": "Nautilus Automatic",
+        "brand": "PATEK PHILIPPE",
+        "model": "Nautilus 5711",
+        "price": 35000,
+        "currency": "USD",
+        "images": [
+            "https://images.unsplash.com/photo-1548171915-e79a380a2a4b?w=600"
+        ],
+        "description": "The Patek Philippe Nautilus is an icon of luxury sports watches.",
+        "specifications": {
+            "case": "40mm Stainless Steel",
+            "movement": "Automatic Calibre 26-330 S C",
+            "waterResistance": "120 meters"
+        },
+        "stock": 2,
+        "warranty": "5 Years International Warranty",
+        "authenticityCertificate": "Included",
+        "rating": 5.0,
+        "reviews": 89,
+        "featured": true,
+        "newArrival": true,
+        "onSale": false
+    },
+    {
+        "id": 3,
+        "name": "Speedmaster Moonwatch",
+        "brand": "OMEGA",
+        "model": "Speedmaster Professional",
+        "price": 7350,
+        "currency": "USD",
+        "images": [
+            "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600"
+        ],
+        "description": "The Omega Speedmaster Professional is the iconic Moonwatch.",
+        "specifications": {
+            "case": "42mm Stainless Steel",
+            "movement": "Manual Calibre 1861",
+            "waterResistance": "50 meters"
+        },
+        "stock": 12,
+        "warranty": "5 Years International Warranty",
+        "authenticityCertificate": "Included",
+        "rating": 4.8,
+        "reviews": 256,
+        "featured": true,
+        "newArrival": false,
+        "onSale": false
+    }
+]

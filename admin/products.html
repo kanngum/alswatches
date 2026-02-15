@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Admin Dashboard</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">ALS <span>Admin</span></div>
+            <nav class="admin-nav">
+                <a href="dashboard.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="products.html" class="admin-nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    Products
+                </a>
+                <a href="orders.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    Orders
+                </a>
+                <a href="users.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                    Users
+                </a>
+                <a href="../index.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Back to Store
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1 class="admin-title">Products</h1>
+                <button class="btn btn-primary" onclick="AdminProducts.showAddModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Add Product
+                </button>
+            </div>
+
+            <!-- Products Table -->
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Brand</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTable">
+                        <!-- Products will be rendered by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-backdrop" onclick="AdminProducts.closeModal()"></div>
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add Product</h3>
+                <button class="modal-close" onclick="AdminProducts.closeModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="admin-form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Product Name</label>
+                            <input type="text" id="productName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Brand</label>
+                            <select id="productBrand" class="form-select" required>
+                                <option value="">Select Brand</option>
+                                <option value="ROLEX">ROLEX</option>
+                                <option value="PATEK PHILIPPE">PATEK PHILIPPE</option>
+                                <option value="OMEGA">OMEGA</option>
+                                <option value="AUDEMARS PIGUET">AUDEMARS PIGUET</option>
+                                <option value="CARTIER">CARTIER</option>
+                                <option value="IWC">IWC</option>
+                                <option value="HUBLOT">HUBLOT</option>
+                                <option value="VACHERON CONSTANTIN">VACHERON CONSTANTIN</option>
+                                <option value="JAEGER-LECOULTRE">JAEGER-LECOULTRE</option>
+                                <option value="ZENITH">ZENITH</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Model</label>
+                            <input type="text" id="productModel" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Price (USD)</label>
+                            <input type="number" id="productPrice" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Image URL</label>
+                        <input type="url" id="productImage" class="form-input" placeholder="https://..." required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea id="productDescription" class="form-textarea" rows="3"></textarea>
+                    </div>
+                    <div class="admin-form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Stock</label>
+                            <input type="number" id="productStock" class="form-input" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Warranty</label>
+                            <input type="text" id="productWarranty" class="form-input" value="5 Years International Warranty">
+                        </div>
+                    </div>
+                    <div class="admin-form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="AdminProducts.closeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        const AdminProducts = {
+            products: [],
+            editingId: null,
+
+            init() {
+                if (!ALS.Auth.isAdmin()) {
+                    window.location.href = '../index.html';
+                    return;
+                }
+                this.products = ALS.getAllProducts();
+                this.renderTable();
+                this.initForm();
+            },
+
+            renderTable() {
+                const tbody = document.getElementById('productsTable');
+                tbody.innerHTML = this.products.map(product => `
+                    <tr>
+                        <td>${product.id}</td>
+                        <td><img src="${product.images[0]}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
+                        <td>${product.name}</td>
+                        <td>${product.brand}</td>
+                        <td>${ALS.formatPrice(product.price)}</td>
+                        <td>${product.stock}</td>
+                        <td><span class="status-badge ${product.stock > 0 ? 'active' : 'inactive'}">${product.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></td>
+                        <td>
+                            <div class="admin-table-actions">
+                                <button class="admin-table-action" onclick="AdminProducts.editProduct(${product.id})" title="Edit">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                                    </svg>
+                                </button>
+                                <button class="admin-table-action delete" onclick="AdminProducts.deleteProduct(${product.id})" title="Delete">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"/>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            },
+
+            initForm() {
+                document.getElementById('productForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.saveProduct();
+                });
+            },
+
+            showAddModal() {
+                this.editingId = null;
+                document.getElementById('modalTitle').textContent = 'Add Product';
+                document.getElementById('productForm').reset();
+                document.getElementById('productModal').classList.add('active');
+            },
+
+            editProduct(id) {
+                const product = this.products.find(p => p.id === id);
+                if (!product) return;
+
+                this.editingId = id;
+                document.getElementById('modalTitle').textContent = 'Edit Product';
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productBrand').value = product.brand;
+                document.getElementById('productModel').value = product.model;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productImage').value = product.images[0];
+                document.getElementById('productDescription').value = product.description || '';
+                document.getElementById('productStock').value = product.stock;
+                document.getElementById('productWarranty').value = product.warranty || '';
+                
+                document.getElementById('productModal').classList.add('active');
+            },
+
+            closeModal() {
+                document.getElementById('productModal').classList.remove('active');
+            },
+
+            saveProduct() {
+                const productData = {
+                    name: document.getElementById('productName').value,
+                    brand: document.getElementById('productBrand').value,
+                    model: document.getElementById('productModel').value,
+                    price: parseInt(document.getElementById('productPrice').value),
+                    images: [document.getElementById('productImage').value],
+                    description: document.getElementById('productDescription').value,
+                    stock: parseInt(document.getElementById('productStock').value),
+                    warranty: document.getElementById('productWarranty').value,
+                    specifications: {},
+                    currency: 'USD',
+                    rating: 0,
+                    reviews: 0
+                };
+
+                if (this.editingId) {
+                    ALS.Admin.updateProduct(this.editingId, productData);
+                    ALS.showToast('Product updated successfully!', 'success');
+                } else {
+                    ALS.Admin.addProduct(productData);
+                    ALS.showToast('Product added successfully!', 'success');
+                }
+
+                this.closeModal();
+                this.products = ALS.getAllProducts();
+                this.renderTable();
+            },
+
+            deleteProduct(id) {
+                if (confirm('Are you sure you want to delete this product?')) {
+                    ALS.Admin.deleteProduct(id);
+                    this.products = ALS.getAllProducts();
+                    this.renderTable();
+                    ALS.showToast('Product deleted successfully!', 'success');
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AdminProducts.init();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Admin User",
+        "email": "admin@als.com",
+        "password": "admin123",
+        "role": "admin",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100",
+        "createdAt": "2024-01-01"
+    },
+    {
+        "id": 2,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "password": "user123",
+        "role": "user",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
+        "createdAt": "2024-06-15"
+    }
+]

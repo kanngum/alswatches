@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Admin Dashboard</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">ALS <span>Admin</span></div>
+            <nav class="admin-nav">
+                <a href="dashboard.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="products.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                    </svg>
+                    Products
+                </a>
+                <a href="orders.html" class="admin-nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    Orders
+                </a>
+                <a href="users.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                    Users
+                </a>
+                <a href="../index.html" class="admin-nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Back to Store
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1 class="admin-title">Orders</h1>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                        <!-- Orders will be rendered by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!ALS.Auth.isAdmin()) {
+                window.location.href = '../index.html';
+                return;
+            }
+
+            const orders = ALS.Admin.getAllOrders();
+            const tbody = document.getElementById('ordersTable');
+            
+            if (orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem;">No orders yet</td></tr>';
+            } else {
+                tbody.innerHTML = orders.map(order => `
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.shippingAddress?.firstName || 'N/A'} ${order.shippingAddress?.lastName || ''}</td>
+                        <td>${order.items?.length || 0} items</td>
+                        <td>${ALS.formatPrice(order.total)}</td>
+                        <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                        <td>
+                            <select onchange="AdminOrders.updateStatus('${order.id}', this.value)" style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                                <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Processing</option>
+                                <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
+                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="admin-table-actions">
+                                <button class="admin-table-action" onclick="AdminOrders.viewOrder('${order.id}')" title="View">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        });
+
+        const AdminOrders = {
+            updateStatus(orderId, status) {
+                ALS.Orders.updateOrderStatus(orderId, status);
+                ALS.showToast('Order status updated!', 'success');
+            },
+            viewOrder(orderId) {
+                const orders = ALS.Admin.getAllOrders();
+                const order = orders.find(o => o.id === orderId);
+                if (order) {
+                    alert(`Order Details:\n\nID: ${order.id}\nTotal: $${order.total}\nStatus: ${order.status}\nItems: ${order.items?.length || 0}`);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
